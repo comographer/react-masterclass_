@@ -4,15 +4,14 @@ const Father = styled.div`
   display: flex;
 `;
 
-const BoxOne = styled.div`
-  background-color: teal;
+const Box = styled.div`
+  background-color: ${(props) => props.bgColor};
   width: 100px;
   height: 100px;
 `;
-const BoxTwo = styled.div`
-  background-color: tomato;
-  width: 100px;
-  height: 100px;
+
+const Circle = styled(Box)`
+  border-radius: 50%;
 `;
 
 const Text = styled.h1`
@@ -22,10 +21,11 @@ const Text = styled.h1`
 function App() {
   return (
     <Father>
-      <BoxOne>
+      <Box bgColor="teal">
         <Text>Hello</Text>
-      </BoxOne>
-      <BoxTwo></BoxTwo>
+      </Box>
+      <Box bgColor="tomato"></Box>
+      <Circle bgColor="brown"></Circle>
     </Father>
   );
 }
@@ -33,9 +33,23 @@ function App() {
 export default App;
 
 /* 2.1 Our First Styled Component
-npm i styled-components
+npm i styled-components;
 
-const Component = styled.tagName`
-  ***CSS CODE***
-`;
+  const Component = styled.tagName`
+    ***CSS CODE***
+  `;
+*/
+
+/* 2.2 Adapting and Extending
+Adapting : styled-components can receive props from components;
+  background-color: ${(props) => props.bgColor};
+  
+  <Box bgColor="tomato"></Box>
+
+Extending : we can extend an existing component and add new properties;
+
+  const Circle = styled(Box)`
+    border-radius: 50%;
+  `;
+
 */
