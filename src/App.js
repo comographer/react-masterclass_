@@ -4,28 +4,26 @@ const Father = styled.div`
   display: flex;
 `;
 
-const Box = styled.div`
-  background-color: ${(props) => props.bgColor};
-  width: 100px;
-  height: 100px;
-`;
-
-const Circle = styled(Box)`
-  border-radius: 50%;
-`;
-
-const Text = styled.h1`
+const Btn = styled.button`
   color: white;
+  background-color: tomato;
+  border: 0;
+  border-radius: 15px;
+`;
+
+const Input = styled.input.attrs({ required: true, minlength: 10 })`
+  background-color: tomato;
 `;
 
 function App() {
   return (
     <Father>
-      <Box bgColor="teal">
-        <Text>Hello</Text>
-      </Box>
-      <Box bgColor="tomato"></Box>
-      <Circle bgColor="brown"></Circle>
+      <Btn as="a">Log in</Btn>
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
     </Father>
   );
 }
@@ -52,4 +50,13 @@ Extending : we can extend an existing component and add new properties;
     border-radius: 50%;
   `;
 
+*/
+
+/* 2.3 'As' and Attrs
+When we want to change the html tag, we can give
+prop "as" to the component to simply change the html tag;
+  <Btn as="a">Log in</Btn>
+
+You can also set HTML attributes from styled-components;
+  const Input = styled.input.attrs({ required: true })``;
 */
