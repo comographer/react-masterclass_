@@ -23,6 +23,15 @@ function App() {
 
 export default App;
 
+/* 3.0 Typescript Introduction
+Typescript is a Javascript based strongly-typed programming language;
+It provides protection for developers by helping devs assign data types in their code;
+
+```Typescript
+const plus = (a:number, b:number) => a + b;
+```
+*/
+
 /* 2.1 Our First Styled Component
 npm i styled-components;
 
