@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
@@ -6,50 +6,17 @@ const Wrapper = styled.div`
   width: 100vw;
   justify-content: center;
   align-items: center;
-  & > * {
-    margin-left: 50px;
-  }
+  background-color: ${(props) => props.theme.backgroundColor};
 `;
 
-const rotationAnimation = keyframes`
-0% {
-  border-radius: 0px;
-  transform: rotate(0deg);
-}
-50% {
-  border-radius: 100px;
-  transform: rotate(360deg);
-}
-100% {  
-  border-radius: 0px;
-  transform: rotate(0deg);
-}
-`;
-
-const Emoji = styled.span`
-  font-size: 80px;
-`;
-
-const Box = styled.div`
-  height: 200px;
-  width: 200px;
-  background-color: ${(props) => props.bgColor};
-  animation: ${rotationAnimation} 1s linear infinite;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  ${Emoji}:hover {
-    font-size: 98px;
-  }
+const Title = styled.h1`
+  color: ${(props) => props.theme.textColor};
 `;
 
 function App() {
   return (
     <Wrapper>
-      <Box bgColor="teal">
-        <Emoji>😀</Emoji>
-      </Box>
-      <Emoji>🚀</Emoji>
+      <Title>Hello</Title>
     </Wrapper>
   );
 }
@@ -117,5 +84,64 @@ const Box = styled.div`
     font-size: 98px;
   }
 `;
+```
+*/
+
+/* 2.7 Themes
+Themes and Local Estate Management combined is used to create Dark Mode;
+Themes is basically where you save all your colors in an object;
+
+In index.js, we import { ThemeProvider } from "styled-components";
+We assign two objects, one for darkTheme and another for lightTheme;
+Within these objects, we assign colors for every component we need;
+We wrap the <App /> component with <ThemeProvider>
+
+```index.js
+import { ThemeProvider } from "styled-components";
+import App from "./App";
+
+const darkTheme = {
+  textColor: "whitesmoke",
+  backgroundColor: "#111",
+};
+
+const lightTheme = {
+  textColor: "#111",
+  backgroundColor: "whitesmoke",
+};
+
+ReactDOM.render(
+  <React.StrictMode>
+    <ThemeProvider theme={darkTheme}>
+      <App />
+    </ThemeProvider>
+  </React.StrictMode>,
+  document.getElementById("root")
+);
+```
+
+In App.js, we assign colors using ${(props) => props.theme.themeObjectKey}
+
+```App.js
+const Wrapper = styled.div`
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  background-color: ${(props) => props.theme.backgroundColor};
+`;
+
+const Title = styled.h1`
+  color: ${(props) => props.theme.textColor};
+`;
+
+function App() {
+  return (
+    <Wrapper>
+      <Title>Hello</Title>
+    </Wrapper>
+  );
+}
 ```
 */
