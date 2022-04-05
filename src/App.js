@@ -1,7 +1,11 @@
 import styled, { keyframes } from "styled-components";
 
-const Father = styled.div`
+const Wrapper = styled.div`
   display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
 `;
 
 const rotationAnimation = keyframes`
@@ -19,6 +23,10 @@ const rotationAnimation = keyframes`
 }
 `;
 
+const Emoji = styled.span`
+  font-size: 80px;
+`;
+
 const Box = styled.div`
   height: 200px;
   width: 200px;
@@ -27,24 +35,19 @@ const Box = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  span {
-    font-size: 80px;
-    &:hover {
-      font-size: 100px;
-    }
-    &:active {
-      opacity: 0;
-    }
+  ${Emoji}:hover {
+    font-size: 98px;
   }
 `;
 
 function App() {
   return (
-    <Father>
+    <Wrapper>
       <Box>
-        <span>😀</span>
+        <Emoji>😀</Emoji>
       </Box>
-    </Father>
+      <Emoji>🚀</Emoji>
+    </Wrapper>
   );
 }
 
@@ -101,4 +104,15 @@ const Box = styled.div`
 `;
 ```
 
+*/
+
+/* 2.5 Pseudo Selectors part Two
+To select a component within another component:
+```
+const Box = styled.div`
+  ${Emoji}:hover {
+    font-size: 98px;
+  }
+`;
+```
 */
