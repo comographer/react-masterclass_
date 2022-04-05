@@ -6,6 +6,9 @@ const Wrapper = styled.div`
   width: 100vw;
   justify-content: center;
   align-items: center;
+  & > * {
+    margin-left: 50px;
+  }
 `;
 
 const rotationAnimation = keyframes`
@@ -30,7 +33,7 @@ const Emoji = styled.span`
 const Box = styled.div`
   height: 200px;
   width: 200px;
-  background-color: teal;
+  background-color: ${(props) => props.bgColor};
   animation: ${rotationAnimation} 1s linear infinite;
   display: flex;
   justify-content: center;
@@ -43,7 +46,7 @@ const Box = styled.div`
 function App() {
   return (
     <Wrapper>
-      <Box>
+      <Box bgColor="teal">
         <Emoji>😀</Emoji>
       </Box>
       <Emoji>🚀</Emoji>
