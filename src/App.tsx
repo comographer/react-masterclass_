@@ -32,6 +32,13 @@ const plus = (a:number, b:number) => a + b;
 ```
 */
 
+/* 3.1 DefinitelyTyped
+To setup react app with typescript : npx create-react-app my-app --template typescript;
+
+Or add to existing project : npm install --save typescript @types/node @types/react @types/react-dom @types/jest;
+In the second case, App.js and index.js should be changed to App.tsx and index.tsx;
+*/
+
 /* 2.1 Our First Styled Component
 npm i styled-components;
 
